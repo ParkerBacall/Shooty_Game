@@ -2,7 +2,7 @@ pico-8 cartridge // http://www.pico-8.com
 version 18
 __lua__
 function _update()
-	
+	player_update()
 end
 
 function _draw()
@@ -21,22 +21,37 @@ music(0)
 		y=59,
 		w=8,
 		h=8,
-		flp=false,
 		dx=0,
 		dy=0,
-		max_dx=2,
-		max_dy=3,
 		acc=0.5,
-		boost=4,
-		anim=0,
-		running = false,
-		jumping = false,
-		falling = false,
-		sliding = false,
-		landed = false
 	}
 	
+		friction=0.75
+
+	
 	end
+-->8
+function player_update()
+
+	player.dx*=friction
+	player.dy*=friction
+
+	if btn(0) then 
+			player.dx-=player.acc
+		end
+	if btn(1) then 
+		player.dx+=player.acc
+	end
+	if btnp(3) then 
+		player.dy+=player.acc
+	end
+		if btnp(2) then 
+		player.dy-=player.acc
+	end
+
+	player.x+=player.dx
+	player.y+=player.dy
+end
 __gfx__
 0000000000aaaa000000000000000000000000000000000000000000f8f000000000000055555555000000000000000000000000000000000000000000000000
 000000000aaaaaa00bbbb30000aaa0000444444000cc000000000000fff000000014000056666665000000000000000000000000000000000000000000000000
