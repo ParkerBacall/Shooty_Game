@@ -3,12 +3,15 @@ version 18
 __lua__
 function _update()
 	player_update()
+	
 end
 
 function _draw()
 	cls()
 	map(0,0)
-	spr(player.sp,player.x,player.y,1,1,player.flp)
+	spr(player.sp,player.x,player.y,1,1,player.flp)	
+	spr(vomit.sp,vomit.x,vomit.y,1,1,player.flp)
+		
 end
 -->8
 function _init()
@@ -26,8 +29,19 @@ music(0)
 		acc=0.5
 	}
 	
+	vomit={
+		sp=2+rnd(6),
+		x=2+ rnd(110),
+		y=2+ rnd(110),
+		w=8,
+		h=8,
+		dx=0,
+		dy=0,
+		acc=0.5
+	}
+	
 		friction=0.75
-
+		i=0
 	
 	end
 -->8
