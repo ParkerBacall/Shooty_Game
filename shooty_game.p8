@@ -38,16 +38,29 @@ function player_update()
 
 	if btn(0) then 
 			player.dx-=player.acc
+			if btn(4) then 
+				player.dx-=1
+			end
 		end
 	if btn(1) then 
 		player.dx+=player.acc
+		if btn(4) then 
+				player.dx+=1
+			end
 	end
 	if btn(2) then 
 		player.dy-=player.acc
+		if btn(4) then 
+				player.dy-=1
+			end
 	end
 	if btn(3) then 
 		player.dy+=player.acc
+		if btn(4) then 
+				player.dy+=1
+			end
 	end
+	
 	
 	player.x+=player.dx
 	player.y+=player.dy
