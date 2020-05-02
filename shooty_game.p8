@@ -23,7 +23,7 @@ music(0)
 		h=8,
 		dx=0,
 		dy=0,
-		acc=0.5,
+		acc=0.5
 	}
 	
 		friction=0.75
@@ -42,13 +42,13 @@ function player_update()
 	if btn(1) then 
 		player.dx+=player.acc
 	end
-	if btnp(3) then 
-		player.dy+=player.acc
-	end
-		if btnp(2) then 
+	if btn(2) then 
 		player.dy-=player.acc
 	end
-
+	if btn(3) then 
+		player.dy+=player.acc
+	end
+	
 	player.x+=player.dx
 	player.y+=player.dy
 end
